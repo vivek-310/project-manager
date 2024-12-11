@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image";
+import UserForm from "./component/UserForm";
 
 export default function Home() {
   return (
@@ -47,6 +50,9 @@ export default function Home() {
           >
             Read our docs
           </a>
+        </div>
+        <div>
+          <UserForm/>
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
