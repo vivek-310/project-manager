@@ -14,19 +14,20 @@ const ProjectDetails: React.FC = () => {
   };
 
   return (
-    <div className="p-8">
-      <h2 className="text-xl font-bold mb-4">Project Details</h2>
-      <p className="mb-2">
-        <span className="font-semibold">Project Name:</span> {project.name}
+    <div className="p-8 bg-gradient-to-r from-teal-50 via-indigo-50 to-blue-50 rounded-lg shadow-xl">
+      <h2 className="text-2xl font-extrabold text-gray-800 mb-6">Project Details</h2>
+      <p className="mb-4 text-gray-700">
+        <span className="font-semibold text-gray-900">Project Name:</span> {project.name}
       </p>
-      <p className="mb-2">
-        <span className="font-semibold">Description:</span> This is a sample project description.
+      <p className="mb-4 text-gray-700">
+        <span className="font-semibold text-gray-900">Description:</span> This is a sample project description.
       </p>
-      <p>
-        <span className="font-semibold">Assigned Users:</span> {project.assignedUsers.join(', ')}
+      <p className="text-gray-700">
+        <span className="font-semibold text-gray-900">Assigned Users:</span> {project.assignedUsers.join(', ')}
       </p>
     </div>
   );
+  
 };
 
 export default ProjectDetails;

@@ -53,27 +53,47 @@ const projects: Project[] = [
 
 const ProjectPage: React.FC = () => {
   return (
-    <div className="container mx-auto p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Project Management</h1>
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="container mx-auto p-6 bg-gradient-to-r from-teal-100 to-indigo-200 min-h-screen">
+      <h1 className="text-5xl font-bold text-gray-900 text-center mb-10">Project Management</h1>
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {projects.map((project) => (
-          <div key={project.id} className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">{project.name}</h2>
-            <p className="text-gray-600 mb-4">{project.description}</p>
-            <h3 className="text-gray-700 font-medium">Assigned Users:</h3>
-            <ul className="list-disc ml-6 text-gray-600 mb-4">
-              {project.assignedUsers.map((user) => (
-                <li key={user.id}>{user.name}</li>
-              ))}
-            </ul>
-            <h3 className="text-gray-700 font-medium">Tasks:</h3>
-            <ul className="list-disc ml-6 text-gray-600">
-              {project.tasks.map((task) => (
-                <li key={task.id} className="mb-2">
-                  <strong className="text-gray-800">{task.name}</strong>: {task.description} <span className={`text-sm font-medium ${task.status === 'Completed' ? 'text-green-600' : task.status === 'In Progress' ? 'text-blue-600' : 'text-red-600'}`}>({task.status})</span>
-                </li>
-              ))}
-            </ul>
+          <div
+            key={project.id}
+            className="bg-white shadow-lg rounded-lg p-6 border border-gray-300 hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out"
+          >
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">{project.name}</h2>
+            <p className="text-gray-700 mb-6">{project.description}</p>
+
+            <div className="mb-6">
+              <h3 className="text-gray-800 font-medium text-xl mb-2">Assigned Users:</h3>
+              <ul className="list-disc ml-6 text-gray-600">
+                {project.assignedUsers.map((user) => (
+                  <li key={user.id} className="text-md">{user.name}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-gray-800 font-medium text-xl mb-2">Tasks:</h3>
+              <ul className="list-disc ml-6 text-gray-600">
+                {project.tasks.map((task) => (
+                  <li key={task.id} className="mb-4">
+                    <strong className="text-lg text-gray-800">{task.name}</strong>: {task.description}
+                    <span
+                      className={`text-sm font-semibold ml-2 ${
+                        task.status === 'Completed'
+                          ? 'text-green-600'
+                          : task.status === 'In Progress'
+                          ? 'text-blue-600'
+                          : 'text-red-600'
+                      }`}
+                    >
+                      ({task.status})
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

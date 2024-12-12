@@ -53,31 +53,32 @@ const UserTablePage: React.FC = () => {
         });
     }, []);
 
-  return (
-    <div className="container mx-auto p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">User and Project Overview</h1>
-      <table className="table-auto w-full bg-white shadow-md rounded-lg border border-gray-200">
-        <thead>
-          <tr className="bg-gray-100 text-black text-left">
-            <th className="px-4 py-2">User ID</th>
-            <th className="px-4 py-2">User Name</th>
-            <th className="px-4 py-2">Email ID</th>
-            <th className="px-4 py-2">Project Name</th>
-          </tr>
-        </thead>
-        <tbody className="text-black">
-          {/* Loop through the fetched data and render each user */}
-          {data?.map((user) => (
-            <tr key={user.id} className="border-t">
-              <td className="px-4 py-2">{user.id}</td>
-              <td className="px-4 py-2">{user.name}</td>
-              <td className="px-4 py-2">{user.email}</td>
+    return (
+      <div className="container mx-auto p-6 bg-gradient-to-r from-teal-50 via-indigo-50 to-blue-50 min-h-screen">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">User and Project Overview</h1>
+        <table className="table-auto w-full bg-white shadow-xl rounded-lg border border-gray-300">
+          <thead className="bg-gradient-to-r from-teal-500 to-indigo-600 text-white">
+            <tr>
+              <th className="px-6 py-3 text-sm font-semibold">User ID</th>
+              <th className="px-6 py-3 text-sm font-semibold">User Name</th>
+              <th className="px-6 py-3 text-sm font-semibold">Email ID</th>
+              <th className="px-6 py-3 text-sm font-semibold">Project Name</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+          </thead>
+          <tbody className="text-gray-700">
+            {data?.map((user) => (
+              <tr key={user.id} className="border-t hover:bg-indigo-100 transition-all duration-300">
+                <td className="px-6 py-4 text-sm">{user.id}</td>
+                <td className="px-6 py-4 text-sm">{user.name}</td>
+                <td className="px-6 py-4 text-sm">{user.email}</td>
+                <td className="px-6 py-4 text-sm text-gray-500">Project Placeholder</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+    
 };
 
 export default UserTablePage;
