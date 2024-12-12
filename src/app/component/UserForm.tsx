@@ -1,64 +1,82 @@
-"use client";
+'use client';  // Mark this as a client component
 
-import { gql, useMutation } from '@apollo/client';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Use next/navigation for Next.js 13+
 
-export default function UserForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const UserForm: React.FC = () => {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const router = useRouter();
+
+  const handleNavigation = (path: string) => {
+    router.push(path);  // Navigate to the specified path
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle the form submission logic (e.g., save user data)
+    console.log("User created:", { name, email });
+  };
 
   return (
-    <form  className="space-y-8 divide-y divide-gray-200">
-      <div className="space-y-8 divide-y divide-gray-200">
-        <div>
+    <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-500 to-indigo-600 p-8 rounded-xl shadow-xl space-y-8">
+      <h3 className="text-3xl font-extrabold text-white text-center mb-6">
+        Create a New User
+      </h3>
+      <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-lg">
+        <div className="space-y-6">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Create a New User</h3>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="block w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your full name"
+            />
           </div>
-          <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-            <div className="sm:col-span-4">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-4">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <div className="mt-1">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                />
-              </div>
-            </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="block w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your email address"
+            />
           </div>
         </div>
-      </div>
-      <div className="pt-5">
-        <div className="flex justify-end">
+        <div className="pt-4 flex justify-end">
           <button
             type="submit"
-            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="py-3 px-8 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           >
             Create User
           </button>
         </div>
+      </form>
+      <div className="flex justify-center pt-6 space-x-4">
+        <button
+          onClick={() => handleNavigation('/projects')}
+          className="py-3 px-8 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
+        >
+          View Projects
+        </button>
+        <button
+          onClick={() => handleNavigation('/projects/1')}
+          className="py-3 px-8 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+        >
+          Project Details
+        </button>
       </div>
-    </form>
+    </div>
   );
-}
+};
 
+export default UserForm;
