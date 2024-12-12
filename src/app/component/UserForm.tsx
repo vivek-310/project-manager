@@ -1,4 +1,4 @@
-'use client';  // Mark this as a client component
+'use client';
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use next/navigation for Next.js 13+
@@ -69,10 +69,22 @@ const UserForm: React.FC = () => {
           View Projects
         </button>
         <button
-          onClick={() => handleNavigation('/projects/1')}
+          onClick={() => handleNavigation('/projects/tasksdetail')}
+          className="py-3 px-8 bg-blue-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+        >
+          Tasks Details
+        </button>
+        <button
+          onClick={() => handleNavigation('/projects/projectdetail')}
           className="py-3 px-8 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
         >
           Project Details
+        </button>
+        <button
+          onClick={() => handleNavigation('/projects/userdetail')}
+          className="py-3 px-8 bg-blue-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+        >
+          users Details
         </button>
       </div>
     </div>
