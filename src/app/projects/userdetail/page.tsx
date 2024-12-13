@@ -39,10 +39,12 @@ const UserTablePage: React.FC = () => {
         <table className="table-auto w-full bg-white shadow-md rounded-lg border border-gray-300">
           <thead className="bg-gradient-to-r from-teal-500 to-indigo-600 text-white">
             <tr>
+
               <th className="px-4 py-2 text-sm font-semibold text-left">User ID</th>
               <th className="px-4 py-2 text-sm font-semibold text-left">User Name</th>
               <th className="px-4 py-2 text-sm font-semibold text-left">Email ID</th>
               <th className="px-4 py-2 text-sm font-semibold text-left">Project ID</th>
+
             </tr>
           </thead>
           <tbody className="text-gray-700">
