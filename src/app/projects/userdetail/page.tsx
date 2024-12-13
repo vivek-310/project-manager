@@ -64,7 +64,7 @@ const UserTablePage: React.FC = () => {
               <th className="px-6 py-3 text-sm font-semibold">User ID</th>
               <th className="px-6 py-3 text-sm font-semibold">User Name</th>
               <th className="px-6 py-3 text-sm font-semibold">Email ID</th>
-              <th className="px-6 py-3 text-sm font-semibold">Project ID</th>
+              <th className="px-6 py-3 text-sm font-semibold">Project's ID</th>
             </tr>
           </thead>
           <tbody className="text-gray-700">
