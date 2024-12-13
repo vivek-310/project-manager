@@ -59,15 +59,6 @@ const ProjectPage: React.FC = () => {
         setLoading(false);
       });
   }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
   return (
     <div className="container mx-auto p-6 bg-gradient-to-r from-teal-100 to-indigo-200 min-h-screen">
       <h1 className="text-5xl font-bold text-gray-900 text-center mb-10">Project Management</h1>
