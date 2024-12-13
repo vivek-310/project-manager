@@ -8,6 +8,7 @@ interface Data {
     id: number;
     name: string;
     email: string;
+    project_id:number;
   }
   
 
@@ -31,6 +32,7 @@ const UserTablePage: React.FC = () => {
                 id
                 name
                 email
+                project_id
               }
             }
           `, // Adjust this query based on your GraphQL schema
@@ -62,7 +64,7 @@ const UserTablePage: React.FC = () => {
               <th className="px-6 py-3 text-sm font-semibold">User ID</th>
               <th className="px-6 py-3 text-sm font-semibold">User Name</th>
               <th className="px-6 py-3 text-sm font-semibold">Email ID</th>
-              <th className="px-6 py-3 text-sm font-semibold">Project Name</th>
+              <th className="px-6 py-3 text-sm font-semibold">Project ID</th>
             </tr>
           </thead>
           <tbody className="text-gray-700">
@@ -71,7 +73,7 @@ const UserTablePage: React.FC = () => {
                 <td className="px-6 py-4 text-sm">{user.id}</td>
                 <td className="px-6 py-4 text-sm">{user.name}</td>
                 <td className="px-6 py-4 text-sm">{user.email}</td>
-                <td className="px-6 py-4 text-sm text-gray-500">Project Placeholder</td>
+                <td className="px-6 py-4 text-sm text-gray-500">{user.project_id}</td>
               </tr>
             ))}
           </tbody>
